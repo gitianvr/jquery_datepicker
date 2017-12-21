@@ -4,7 +4,7 @@ module JqueryDatepicker
   module FormHelper
     include ActionView::Helpers::JavaScriptHelper
 
-    # Mehtod that generates datepicker input field inside a form
+    # Method that generates datepicker input field inside a form
     def datepicker(object_name, method, options = {}, timepicker = false)
       input_tag =  JqueryDatepicker::Tags.new(object_name, method, self, options)
       dp_options, tf_options =  input_tag.split_options(options)
