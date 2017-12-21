@@ -62,4 +62,8 @@ class JqueryDatepicker::Tags < ActionView::Helpers::Tags::TextField
     format.gsub!(/#{FORMAT_REPLACEMENTES.keys.join("|")}/) { |match| FORMAT_REPLACEMENTES[match] }
   end
 
+  def self.field_type
+    'text'
+  end
+
 end
