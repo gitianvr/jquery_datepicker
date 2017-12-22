@@ -11,4 +11,9 @@ module JqueryDatepicker
       ActionView::Helpers::FormBuilder.send(:include,JqueryDatepicker::FormBuilder)
     end
   end
+
+  module Rails
+    class Engine < ::Rails::Engine
+    end
+  end
 end

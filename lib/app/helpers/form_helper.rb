@@ -42,24 +42,24 @@ class JqueryDatepicker::Tags < ActionView::Helpers::Tags::TextField
 
 
     # format value to match date format
-    dateFormat = dp_options[:dateFormat]
-    tf_options[:value] = format_date(tf_options[:value], dateFormat) if tf_options[:value] && !tf_options[:value].empty? && dp_options.has_key?(:dateFormat)
+    @dateFormat = dp_options[:dateFormat]
+    tf_options[:value] = format_date(tf_options[:value], @dateFormat) if tf_options[:value] && !tf_options[:value].empty? && dp_options.has_key?(:dateFormat)
 
     # format dp_options holding date
-    dp_options.merge!(dp_options.slice(*date_datepicker_options).transform_values{|v|format_date(v, dateFormat)})
+    dp_options.merge!(dp_options.slice(*date_datepicker_options).transform_values {|v| format_date(v, @dateFormat)})
 
     # add class make_datepicker
     tf_options[:class] = (Array.wrap(tf_options[:class]) + [:make_datepicker]).join(' ')
 
     # transmit dp options in data field of tf options, permitting caller to overwrite values
-    tf_options[:data] = dp_options.transform_keys{|k|"datepicker-#{k.to_s.underscore.dasherize}"}.deep_merge(tf_options.fetch(:data){{}})
+    tf_options[:data] = {datepicker: dp_options}.deep_merge(tf_options.fetch(:data) {{}})
 
     super(object_name, method, template_object, tf_options)
   end
 
   def render
     super do |options|
-      options['value'] = format_date(options['value'], options['data']['datepicker-date-format'])
+      options['value'] = format_date(options['value'], @dateFormat)
     end
   end
 
