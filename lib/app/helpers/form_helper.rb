@@ -64,7 +64,7 @@ class JqueryDatepicker::Tags < ActionView::Helpers::Tags::TextField
   end
 
   def available_datepicker_options
-    [:disabled, :altField, :altFormat, :appendText, :autoSize, :buttonImage, :buttonImageOnly, :buttonText, :calculateWeek, :changeMonth, :changeYear, :closeText, :constrainInput, :currentText, :dateFormat, :dayNames, :dayNamesMin, :dayNamesShort, :defaultDate, :duration, :firstDay, :gotoCurrent, :hideIfNoPrevNext, :isRTL, :maxDate, :minDate, :monthNames, :monthNamesShort, :navigationAsDateFormat, :nextText, :numberOfMonths, :prevText, :selectOtherMonths, :shortYearCutoff, :showAnim, :showButtonPanel, :showCurrentAtPos, :showMonthAfterYear, :showOn, :showOptions, :showOtherMonths, :showWeek, :stepMonths, :weekHeader, :yearRange, :yearSuffix, :readOnly, :value, :size, :id]
+    %i[altField altFormat appendText autoSize beforeShow beforeShowDay buttonImage buttonImageOnly buttonText calculateWeek changeMonth changeYear closeText constrainInput currentText dateFormat dayNames dayNamesMin dayNamesShort defaultDate duration firstDay gotoCurrent hideIfNoPrevNext isRTL maxDate minDate monthNames monthNamesShort navigationAsDateFormat nextText numberOfMonths onChangeMonthYear onClose onSelect prevText selectOtherMonths shortYearCutoff showAnim showButtonPanel showCurrentAtPos showMonthAfterYear showOn showOptions showOtherMonths showWeek stepMonths weekHeader yearRange yearSuffix]
   end
 
   def date_datepicker_options
