@@ -43,7 +43,6 @@ class JqueryDatepicker::Tags < ActionView::Helpers::Tags::TextField
 
     # format value to match date format
     @dateFormat = dp_options[:dateFormat]
-    tf_options[:value] = format_date(tf_options[:value], @dateFormat) if tf_options[:value] && !tf_options[:value].empty? && dp_options.has_key?(:dateFormat)
 
     # format dp_options holding date
     dp_options.merge!(dp_options.slice(*date_datepicker_options).transform_values {|v| format_date(v, @dateFormat)})
